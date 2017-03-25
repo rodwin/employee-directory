@@ -11,8 +11,8 @@ class DepartmentTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('department_employee')->delete();
-        DB::table('departments')->delete();
+        DB::table('department_employee')->truncate();
+        DB::table('departments')->truncate();
 
         $depts = [
             ['name' => 'Accounts', ],
