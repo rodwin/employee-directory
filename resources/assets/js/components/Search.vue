@@ -2,54 +2,34 @@
     <div class="container content">
         <div class="field has-addons has-addons-centered">
 
-            <p class="control">
-                <input class="input is-large"
-                               v-model="query"
-                               v-on:search="searchEmployee"
-                               type="search"
-                               placeholder="Keywords">
+            <p class="control has-icon has-icon-right">
+                <input class="input is-large is-expanded"
+                       v-model="query"
+                       v-on:search="searchEmployee"
+                       type="search"
+                       placeholder="Keywords" />
+                <span class="icon is-large">
+                  <i class="fa fa-search"></i>
+                </span>
             </p>
 
-            <span class="select is-large">
-                      <select v-model="department_id" v-on:change="searchEmployee">
+        </div>
+        <div class="field has-addons has-addons-centered">
+
+            <div class="field">
+                <p class="control">
+                <span class="select">
+                  <select v-model="department_id" v-on:change="searchEmployee">
                         <option value="" selected>All Departments</option>
                         <option v-for="option in departments" v-bind:value="option.id">
                                     {{ option.name }}
                         </option>
                       </select>
-                    </span>
+                </span>
+                </p>
+            </div>
+
         </div>
-        <!--<div class="columns">-->
-            <!--<div class="column is-three-quarters">-->
-                <!--<div class="field has-addons">-->
-                    <!--<p class="control  has-icon has-icon-right">-->
-                        <!--<input class="input is-large"-->
-                               <!--v-model="query"-->
-                               <!--v-on:search="searchEmployee"-->
-                               <!--type="search"-->
-                               <!--placeholder="Keywords">-->
-
-                        <!--<span class="icon is-large">-->
-                                      <!--<i class="fa fa-search"></i>-->
-                                    <!--</span>-->
-                    <!--</p>-->
-
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="column is-one-quarter">-->
-                <!--<p class="control">-->
-                    <!--<span class="select is-large is-fullwidth">-->
-                      <!--<select v-model="department_id" v-on:change="searchEmployee">-->
-                        <!--<option value="" selected>All Departments</option>-->
-                        <!--<option v-for="option in departments" v-bind:value="option.id">-->
-                                    <!--{{ option.name }}-->
-                        <!--</option>-->
-                      <!--</select>-->
-                    <!--</span>-->
-                <!--</p>-->
-            <!--</div>-->
-        <!--</div>-->
-
         <search-result
             v-for="emp in result.data" :emp="emp">
         </search-result>

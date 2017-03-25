@@ -1941,26 +1941,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -19311,7 +19291,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "field has-addons has-addons-centered"
   }, [_c('p', {
-    staticClass: "control"
+    staticClass: "control has-icon has-icon-right"
   }, [_c('input', {
     directives: [{
       name: "model",
@@ -19319,7 +19299,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       value: (_vm.query),
       expression: "query"
     }],
-    staticClass: "input is-large",
+    staticClass: "input is-large is-expanded",
     attrs: {
       "type": "search",
       "placeholder": "Keywords"
@@ -19334,8 +19314,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.query = $event.target.value
       }
     }
-  })]), _vm._v(" "), _c('span', {
-    staticClass: "select is-large"
+  }), _vm._v(" "), _vm._m(0)])]), _vm._v(" "), _c('div', {
+    staticClass: "field has-addons has-addons-centered"
+  }, [_c('div', {
+    staticClass: "field"
+  }, [_c('p', {
+    staticClass: "control"
+  }, [_c('span', {
+    staticClass: "select"
   }, [_c('select', {
     directives: [{
       name: "model",
@@ -19365,7 +19351,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "value": option.id
       }
     }, [_vm._v("\n                                " + _vm._s(option.name) + "\n                    ")])
-  })], 2)])]), _vm._v(" "), _vm._l((_vm.result.data), function(emp) {
+  })], 2)])])])]), _vm._v(" "), _vm._l((_vm.result.data), function(emp) {
     return _c('search-result', {
       attrs: {
         "emp": emp
@@ -19402,7 +19388,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "click": _vm.next
     }
   }, [_vm._v("Next page")])])], 2)
-},staticRenderFns: []}
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('span', {
+    staticClass: "icon is-large"
+  }, [_c('i', {
+    staticClass: "fa fa-search"
+  })])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
