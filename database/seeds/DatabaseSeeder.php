@@ -14,9 +14,11 @@ class DatabaseSeeder extends Seeder
         Eloquent::unguard();
 
         // Disable Foreign key check for this connection before running seeders
+        // This is needed to truncate tables with foreign keys
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
         $this->call(DepartmentTableSeeder::class);
+
         $this->call(EmployeeTableSeeder::class);
 
         // FOREIGN_KEY_CHECKS is supposed to only apply to a single

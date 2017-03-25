@@ -11,9 +11,17 @@ class HomeController extends Controller
 
     const PAGINATE_VALUE = 10;
 
+    /**
+     * During initial load, provide initial data for faster rendering
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $employees = EmployeeView::paginate(self::PAGINATE_VALUE);
+
+        /*
+         * Provide path to fix the url of paginator in view
+         */
         $employees->withPath('/api/employee/search');
 
         $departments = \App\Department::all();
@@ -21,6 +29,15 @@ class HomeController extends Controller
         return view('welcome', compact('employees','departments'));
     }
 
+    /**
+     * Staff Search
+     * When $request->q is present, search will be done against Algolia via Laravel Scout
+     * When $request->q is not present, return the first 10 staff
+     * When $request->d is present apply to refine result
+     *
+     * @param Request $request
+     * @return Paginated Algolia search
+     */
     public function search(Request $request)
     {
         $q = $request->input('query');
