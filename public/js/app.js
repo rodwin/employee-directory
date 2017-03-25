@@ -1975,7 +1975,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         searchEmployee: _.debounce(function () {
             var self = this;
-            axios.get('/employee/search?query=' + this.query + '&d=' + this.department_id).then(function (response) {
+            axios.get('/api/employee/search?query=' + this.query + '&d=' + this.department_id).then(function (response) {
                 self.result = response.data;
             }).catch(function (error) {
                 console.log(error);

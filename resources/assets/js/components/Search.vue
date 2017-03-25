@@ -80,7 +80,7 @@
         methods: {
             searchEmployee: _.debounce(function () {
                 let self = this
-                axios.get(`/employee/search?query=${this.query}&d=${this.department_id}`)
+                axios.get(`/api/employee/search?query=${this.query}&d=${this.department_id}`)
                     .then(function (response) {
                         self.result = response.data;
                     })

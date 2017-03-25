@@ -3,13 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Laravel\Scout\Searchable;
 
 class Employee extends Model
 {
 
-    public function department(){
+    public function departments(){
 
-        return $this->belongsTo(Department::class);
+        return $this->belongsToMany(Department::class);
     }
+
 }

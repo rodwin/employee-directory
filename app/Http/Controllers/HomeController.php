@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function index()
     {
         $employees = EmployeeView::paginate(self::PAGINATE_VALUE);
-        $employees->withPath('/employee/search');
+        $employees->withPath('/api/employee/search');
 
         $departments = \App\Department::all();
 

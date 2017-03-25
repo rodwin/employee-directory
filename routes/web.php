@@ -12,8 +12,6 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/employee/search', 'HomeController@search');
-Route::get('/test/{query}', function($query){
-    return \App\Employee::search($query)->get();
-});
+
+
 
