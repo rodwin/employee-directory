@@ -1,6 +1,6 @@
 # Staff Directory Application
 
-A Laravel/Vue.js project. [Live Demo Here] (http://http://128.199.222.214)
+A Laravel/Vue.js project. [Live Demo Here] (http://128.199.222.214)
 
 ## Installation
 
