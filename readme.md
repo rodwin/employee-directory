@@ -39,7 +39,7 @@ In order for the search to work with Algolia, Laravel Scout must first import th
  php artisan scout:import "App\EmployeeView"
 
 ```
-This will create/update the index in Algolia. Note that if you run `php artisan scout:import` The demo application will no longer be in sync with Algolia.
+This will create/update the index in Algolia. Note that if you run `php artisan scout:import` The demo application will no longer be in sync with Algolia. This is because `php artisan db:seed` uses `faker` which generate random data.
 
 To run the app
 ``` bash
