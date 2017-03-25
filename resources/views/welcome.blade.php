@@ -7,12 +7,7 @@
     <title>Staff Directory</title>
 
     <link rel="stylesheet" type="text/css" href="{{ mix('/css/app.css') }}">
-    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
+
 </head>
 <body>
     <div id="app">
@@ -34,6 +29,13 @@
             </search>
         </section>
     </div>
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+    </script>
+    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
     <script src="{{ mix('/js/app.js') }}"></script>
 </body>
 </html>

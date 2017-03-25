@@ -6,7 +6,6 @@
                     <p class="control is-expanded has-icon has-icon-right">
                         <input class="input is-large"
                                v-model="query"
-                               v-on:keyup="searchEmployee"
                                v-on:search="searchEmployee"
                                type="search"
                                placeholder="Keywords">
@@ -68,13 +67,18 @@
             }
         },
 
+        watch:{
+            'query': function () {
+                this.searchEmployee()
+            }
+        },
+
         components :{
             SearchResult
         },
 
-        methods:{
-
-            searchEmployee(){
+        methods: {
+            searchEmployee: _.debounce(function () {
                 let self = this
                 axios.get(`/employee/search?query=${this.query}&d=${this.department_id}`)
                     .then(function (response) {
@@ -83,7 +87,7 @@
                     .catch(function (error) {
                         console.log(error);
                     });
-            },
+            }, 300),
 
             next(){
                 let self = this

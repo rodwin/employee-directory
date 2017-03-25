@@ -1941,7 +1941,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -1963,19 +1962,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
 
+    watch: {
+        'query': function query() {
+            this.searchEmployee();
+        }
+    },
+
     components: {
         SearchResult: __WEBPACK_IMPORTED_MODULE_0__SearchResult_vue___default.a
     },
 
     methods: {
-        searchEmployee: function searchEmployee() {
+        searchEmployee: _.debounce(function () {
             var self = this;
             axios.get('/employee/search?query=' + this.query + '&d=' + this.department_id).then(function (response) {
                 self.result = response.data;
             }).catch(function (error) {
                 console.log(error);
             });
-        },
+        }, 300),
+
         next: function next() {
             var self = this;
             axios.get(this.result.next_page_url + '&d=' + this.department_id).then(function (response) {
@@ -2044,7 +2050,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var id = this.emp.id;
 
             var random = Math.floor(Math.random() * (4 - 1)) + 1;
-            console.log(random);
+
             return '/images/avatar-' + random + '.jpg';
         }
     }
@@ -19306,7 +19312,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "value": (_vm.query)
     },
     on: {
-      "keyup": _vm.searchEmployee,
       "search": _vm.searchEmployee,
       "input": function($event) {
         if ($event.target.composing) { return; }
